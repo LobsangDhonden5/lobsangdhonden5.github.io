@@ -3,12 +3,9 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <style>
-
 body {
     background-color: yellow;
 } 
-
-
    
 canvas {
 padding-left: 0;
@@ -26,21 +23,19 @@ padding-left: 0;
 <body onload="startGame()">
 
 
-
-<button type="button" onclick="alert('Hello, Click on the Jump button to start the game,and enjoy !')">Click Me First!</button>
+<button type="button" onclick="alert('Hello, Click on the button Jump to start the game,and enjoy !')">Click Me First!</button>
+<p>Here</p>
 
 <script>
 var myGamePiece;
 var myObstacles = [];
 var myScore;
-
 function startGame() {
     myGamePiece = new component(45, 45, "blue", 10, 120);
     myGamePiece.gravity = 0.05;
-    myScore = new component("30px", "Consolas", "black", 280, 40, "text");
+    myScore = new component("30px", "Consolas", "black", 720, 30, "text");
     myGameArea.start();
 }
-
 var myGameArea = {
     canvas : document.createElement("canvas"),
     start : function() {
@@ -55,7 +50,6 @@ var myGameArea = {
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
     }
 }
-
 function component(width, height, color, x, y, type) {
     this.type = type;
     this.score = 0;
@@ -107,7 +101,6 @@ function component(width, height, color, x, y, type) {
         return crash;
     }
 }
-
 function updateGameArea() {
     var x, height, gap, minHeight, maxHeight, minGap, maxGap;
     for (i = 0; i < myObstacles.length; i += 1) {
@@ -117,12 +110,12 @@ function updateGameArea() {
     }
     myGameArea.clear();
     myGameArea.frameNo += 1;
-    if (myGameArea.frameNo == 1 || everyinterval(150)) {
+    if (myGameArea.frameNo == 1 || everyinterval(110)) {
         x = myGameArea.canvas.width;
         minHeight = 20;
         maxHeight = 200;
         height = Math.floor(Math.random()*(maxHeight-minHeight+1)+minHeight);
-        minGap = 70;
+        minGap = 100;
         maxGap = 200;
         gap = Math.floor(Math.random()*(maxGap-minGap+1)+minGap);
         myObstacles.push(new component(25, height, "green", x, 0));
@@ -137,7 +130,6 @@ function updateGameArea() {
     myGamePiece.newPos();
     myGamePiece.update();
 }
-
 function everyinterval(n) {
     if ((myGameArea.frameNo / n) % 1 == 0) {return true;}
     return false;
@@ -146,8 +138,15 @@ function accelerate(n) {
     myGamePiece.gravity = n;
 }
 </script>
+
 <br>
 <button onmousedown="accelerate(-0.2)" onmouseup="accelerate(0.05)">Jump</button>
-<p>Click here<p>
+<p>Click here to jump</p>
+
+<br>
+<button onclick="restartGame()">Restart</button>
+<p>Click here to restart</p>
+
+
 </body>
 </html>
