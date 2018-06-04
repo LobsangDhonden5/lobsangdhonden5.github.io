@@ -1,0 +1,28 @@
+<script>
+  var word = prompt("player 1, enter your secret word");
+  var secret = [];
+  var strikes = 0;
+  for (i = 0; i < word.length; i++) {
+    secret.push("_");
+  }
+  while (strikes < 3 && secret.indexOf("_") >= 0) {
+    var letter = prompt(secret.join(" ") + "\n\n" + "PLayer 2, guess the letter");
+  
+  if (word.indexOf(letter) < 0) {
+    strikes++;
+    alert("BAD GuESS");
+  } else {
+    for (i = 0; i < word.length; i++) {
+      if (word[i] === letter) {
+        secret[i] = letter;
+      }
+    }
+  }
+  }
+   if ( strikes === 3) { 
+   alert( "Sorry wrong, try again");
+   } else {
+   alert(" Congrats, you win");
+   }
+alert( " the secret letter is " + word);
+</script>
