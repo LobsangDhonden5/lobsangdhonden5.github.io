@@ -1,0 +1,39 @@
+alert('WARNING, Lots of text');
+alert('Press Ok to begin');
+alert('This is a  planet survival game');
+
+var planets = prompt("You are a genius who wants to discovering the first 3 first planets in our solar system. Enter the  planets you wanna explore first,and see if you can survive on these planets? (Mercury,Venus, or Earth)").toUpperCase();
+
+switch (planets) {
+  case 'MERCURY':
+    var strong = prompt("Do you anything about Mercury ? (YES or NO)?").toUpperCase();
+    var smart = prompt("Are you smart?").toUpperCase();
+    if (strong === 'YES' || smart === 'YES') {
+      console.log("It seems you are either smart or healthy, which means you are physically or mentally capable to explore and survive on  Mercury.");
+    } else {
+      console.log("You are physically and mentally not capable to survive on MERCURY, which means you won't be able to explore Mercury. First, go and learn something about Mercury and then go to gym to make youself healthy so you can survive on Mercury.");
+    }
+    break;
+  case 'VENUS':
+    var money = prompt("Are you rich (YES or NO)?").toUpperCase();
+    var SMART = prompt("Are you smart?").toUpperCase();
+    if (money === 'YES' || SMART === 'YES') {
+      console.log(" Great! It seems you can go  to Venus and explore");
+    } else {
+      console.log("Sucks to be you, but you can't go to Venus. You don't have enough money to go to Venus.");
+    }
+    break;
+
+  case 'EARTH':
+    var fast = prompt("Do you know anything about Earth (YES or NO)?").toUpperCase();
+    var headStart = prompt("Are you physically and mentally healthy (YES ot NO) ?").toUpperCase();
+    if (fast === 'YES' || headStart === 'YES') {
+      console.log("It seems are healthy and capable to explore Earth. Congrats !");
+    } else {
+      console.log("Sorry, something is wrong with you. You can't explore EARTH");
+    }
+
+    break;
+  default:
+    console.log("I didn't understand your choice. Hit Run and try again, this time picking MERCURY, VENUS OR EARTH");
+}
